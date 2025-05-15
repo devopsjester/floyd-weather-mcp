@@ -10,12 +10,25 @@ An MCP (Model Context Protocol) server that provides weather information and dep
 - Check if it's safe to deploy to a server in a specific city
 - Deploy to a server if conditions are safe
 - Temperature display in appropriate units (°F for US, °C elsewhere)
+- Codebase structured following SOLID principles for maintainability
 
 ## Deployment Safety Rules
 
 Deployment is considered safe when:
 - It's between 9am and 5pm in the target city's local time
 - The weather conditions are clear or sunny
+
+## Architecture
+
+The application follows SOLID design principles:
+
+- **Single Responsibility**: Each package has a clear, focused purpose
+- **Open/Closed**: Code can be extended without modifying existing functionality
+- **Liskov Substitution**: Interfaces allow for substitution of implementations
+- **Interface Segregation**: Focused interfaces define minimal required behaviors
+- **Dependency Inversion**: High-level modules depend on abstractions
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for more details on the design.
 
 ## Installation
 

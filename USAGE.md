@@ -1,4 +1,4 @@
-# Using Floyd in VS Code
+# Using Floyd Weather Deployment Server
 
 Floyd is an MCP (Model Context Protocol) server that integrates with GitHub Copilot in VS Code 1.100 and above. It provides weather information and deployment safety checks for any city in the world.
 
@@ -10,6 +10,42 @@ Floyd is an MCP (Model Context Protocol) server that integrates with GitHub Copi
    cd /Users/devopsjester/repos/experiment/mcp/floyd-weather-deployer
    go build -o floyd-weather-server
    ```
+   
+   Or simply use the Makefile:
+   ```bash
+   make build
+   ```
+
+## Command-Line Usage
+
+You can use the provided helper script to interact with the server:
+
+```bash
+# Get weather information
+./run.sh weather "London" "United Kingdom"
+
+# Check deployment safety
+./run.sh check "New York" "USA"
+
+# Try to deploy to a city
+./run.sh deploy "Tokyo" "Japan"
+```
+
+Alternatively, you can use the Makefile commands:
+
+```bash
+# Get weather for London (default city)
+make weather
+
+# Get weather for a specific city
+make weather CITY="Paris" COUNTRY="France"
+
+# Check deployment safety
+make check-safety CITY="Berlin" COUNTRY="Germany"
+
+# Try to deploy
+make deploy CITY="Sydney" COUNTRY="Australia"
+```
 
 ## Interacting with Floyd via GitHub Copilot
 

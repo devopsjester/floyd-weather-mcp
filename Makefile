@@ -10,6 +10,10 @@ GOTEST=$(GO) test
 GOCLEAN=$(GO) clean
 GOGET=$(GO) get
 
+# Default city and country (can be overridden from command line)
+CITY?=London
+COUNTRY?=United Kingdom
+
 # Build the application
 build:
 	@echo "Building..."
@@ -19,6 +23,21 @@ build:
 run: build
 	@echo "Running..."
 	./$(BINARY_NAME)
+	
+# Run the weather check for a city
+weather: build
+	@echo "Getting weather information..."
+	./run.sh weather "$(CITY)" "$(COUNTRY)"
+	
+# Check deployment safety for a city
+check-safety: build
+	@echo "Checking deployment safety..."
+	./run.sh check "$(CITY)" "$(COUNTRY)"
+	
+# Deploy to a city
+deploy: build
+	@echo "Attempting deployment..."
+	./run.sh deploy "$(CITY)" "$(COUNTRY)"
 
 # Clean the build artifacts
 clean:
