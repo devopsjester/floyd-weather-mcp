@@ -1,0 +1,21 @@
+# Binary output
+floyd-weather-server
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# macOS specific files
+.DS_Store
+
+# Go specific
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.sum
